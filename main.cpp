@@ -18,7 +18,9 @@ int main(){
         cout << "5: Distance between two actors" << endl;
         cout << "6: List all actors" << endl;
         cout << "7: List all movies" << endl;
-        cout << "8: Quit" << endl;
+        cout << "8: List all movies directed by a director" << endl;//addition
+        cout << "9: Sort movies by year" << endl; //addition
+        cout << "10: Quit" << endl; //addition
         string input;
         string input2;
         int numInput;
@@ -56,7 +58,15 @@ int main(){
             case 7:
                 list.listMovies();
                 break;
-            case 8:
+           case 8:      // addition
+            	cout << "What director would you like to search?" << endl;
+            	getline(cin,input);
+            	list.directorMovies(input);
+            	break;
+            case 9:     // addition
+            	list.sortMoviesByYear();
+            	break;
+            case 10: //addition
                 run = false;
                 cout << "Goodbye!" << endl;
                 break;

@@ -349,6 +349,13 @@ void ActorList::movieActors(string title){
  * This method will take in the name of a director and print out all of the movies directed by that director.
  *If the name isn't in the list, the program will print "Director not Found"
 @param name The name of the director
+* How To Run:
+* list.directorMovies(input)
+* Pre-Condition:
+* waits for an input
+* Post-Condition:
+* traverses the movie array and reports if the director is found.
+* 
  */
 void ActorList::directorMovies(string name){
 	int movieCount = 0;
@@ -367,6 +374,13 @@ void ActorList::directorMovies(string name){
 }
 /*addition
  * This method will sort the movies in the list by year.
+ * How To Run:
+ * list.sortMoviesByYear();
+ * Pre-Condition:
+ * assumes there is a quick sort function
+ * Post-Condition
+ *
+ * calls the quick sort function
   */
 void ActorList::sortMoviesByYear(){
 	quickSortYear(&movies, 0, movies.size()-1);
@@ -375,6 +389,12 @@ void ActorList::sortMoviesByYear(){
 /* addition
  * This private method implements a quicksort algorithm on the movies vector
  * and sorts the movies by year.
+ * How To Run:
+ * quicksortYear(&movies,0,movies.size()-1);
+ * Pre-Condition:
+ * Assumes there is  movie array to sort
+ * Post-Condition:
+ * creates a rearranged array of Movies
  *
  * @param vector * movieArray pointer to movie vector
  * @param int left leftmost index in array

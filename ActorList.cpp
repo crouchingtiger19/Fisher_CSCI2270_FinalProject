@@ -345,3 +345,61 @@ void ActorList::movieActors(string title){
     }
     cout << "There were about " << sabsab->actors.size() << " actors in this movie" << endl;
 }
+/*addition
+ * This method will take in the name of a director and print out all of the movies directed by that director.
+ *If the name isn't in the list, the program will print "Director not Found"
+@param name The name of the director
+ */
+void ActorList::directorMovies(string name){
+	int movieCount = 0;
+
+	for(unsigned int x = 0; x < movies.size(); x ++){
+		if (movies[x]->director == name) {
+			movieCount++;
+			cout << movies[x]->title << " : " << movies[x]->year << endl;
+		}
+	}
+	if (movieCount > 0) {
+		cout << "This director directed at least " << movieCount << " movies." << endl;
+	} else {
+		cout << "Director not Found" << endl;
+	}
+}
+/*addition
+ * This method will sort the movies in the list by year.
+  */
+void ActorList::sortMoviesByYear(){
+	quickSortYear(&movies, 0, movies.size()-1);
+}
+
+/* addition
+ * This private method implements a quicksort algorithm on the movies vector
+ * and sorts the movies by year.
+ *
+ * @param vector * movieArray pointer to movie vector
+ * @param int left leftmost index in array
+ * @param itn right rightmost index in array
+ */
+void ActorList::quickSortYear(std::vector<Movie *> *movieArray, int left, int right) {
+     int i = left;
+     int j = right;
+     Movie *tmp;
+     Movie *pivot = (*movieArray)[(left + right) / 2];
+     while(i <= j){
+          while((*movieArray)[i]->year < pivot->year)
+               i++;
+          while((*movieArray)[j]->year > pivot->year)
+               j--;
+          if(i <= j){
+               tmp = (*movieArray)[i];
+               (*movieArray)[i] = (*movieArray)[j];
+               (*movieArray)[j] = tmp;
+               i++;
+               j--;
+          }
+     }
+     if (left < j)
+          quickSortYear(movieArray, left, j);
+     if (i < right)
+          quickSortYear(movieArray, i, right);
+}

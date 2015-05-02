@@ -39,6 +39,7 @@ class ActorList{
         Movie *findMovie(string title,int front, int back);
         void insertActor(Actor *actor);
         void insertMovie(Movie *movie);
+        void quickSortYear(std::vector<Movie *> *movieArray, int left, int right); // addition
     public:
         ActorList();
         ~ActorList();
@@ -50,6 +51,8 @@ class ActorList{
         void listMovies();
         void loadFile(string filename);
         void movieActors(string title);
+        void directorMovies(string directorName);   // addition
+        void sortMoviesByYear(); // addition
 };
 
 

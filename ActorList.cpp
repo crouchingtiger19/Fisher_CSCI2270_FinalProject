@@ -337,7 +337,7 @@ void ActorList::loadFile(string fileName){
 void ActorList::movieActors(string title){
     Movie *sabsab = findMovie(title,0,movies.size()-1);
     if(sabsab == NULL){
-        cout << "Actor not found" << endl;
+        cout << "Movie not found" << endl;
         return;
     }
     for(unsigned int x = 0; x < sabsab->actors.size(); x ++){
@@ -355,7 +355,7 @@ void ActorList::movieActors(string title){
 * waits for an input
 * Post-Condition:
 * traverses the movie array and reports if the director is found.
-* 
+*
  */
 void ActorList::directorMovies(string name){
 	int movieCount = 0;

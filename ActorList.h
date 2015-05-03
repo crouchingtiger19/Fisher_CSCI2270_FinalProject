@@ -50,6 +50,9 @@ class ActorList{
         void listMovies();
         void loadFile(string filename);
         void movieActors(string title);
+        void movieDirector(string title);
+        void movieInfo(string title);
+
 };
 
 

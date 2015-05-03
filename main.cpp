@@ -18,7 +18,9 @@ int main(){
         cout << "5: Distance between two actors" << endl;
         cout << "6: List all actors" << endl;
         cout << "7: List all movies" << endl;
-        cout << "8: Quit" << endl;
+        cout << "8: Print movie director" << endl;
+        cout << "9: Print movie info" << endl;
+        cout << "10: Quit" << endl;
         string input;
         string input2;
         int numInput;
@@ -57,6 +59,16 @@ int main(){
                 list.listMovies();
                 break;
             case 8:
+                cout << "What movie would you like to search?" << endl;
+                getline(cin,input);
+                list.movieDirector(input);
+                break;
+            case 9:
+                cout << "What movie info would you like?" << endl;
+                getline(cin,input);
+                list.movieInfo(input);
+                break;
+            case 10:
                 run = false;
                 cout << "Goodbye!" << endl;
                 break;

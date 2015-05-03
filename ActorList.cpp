@@ -337,11 +337,55 @@ void ActorList::loadFile(string fileName){
 void ActorList::movieActors(string title){
     Movie *sabsab = findMovie(title,0,movies.size()-1);
     if(sabsab == NULL){
-        cout << "Actor not found" << endl;
+        cout << "Movie not found" << endl;
         return;
     }
     for(unsigned int x = 0; x < sabsab->actors.size(); x ++){
         cout << sabsab->actors[x]->name << endl;
+    }
+    cout << "There were about " << sabsab->actors.size() << " actors in this movie" << endl;
+}
+/*
+The reason I added this function was because at first I thought the first name in the text file was also an actor.
+This confused me when I was trying to print out all the actors in the movie. It was not clear to me that the first name was the director.
+I thought by adding this it would make it easier to tell that the director is the first name. :)
+*/
+void ActorList::movieDirector(string title)
+{
+    Movie *sabsab = findMovie(title,0,movies.size()-1);
+    if(sabsab == NULL)
+    {
+        cout << "Movie not found" << endl;
+        return;
+    }
+    for(unsigned int i = 0; i < sabsab->actors.size(); i++)
+    {
+        cout << sabsab->director << endl;
+        break;
+    }
+}
+/*
+The reason I added this function was because you put so much information into the text file that you did not use, and so I thought
+this would be a good way to incorporate all of the information in the text file. :)
+*/
+void ActorList::movieInfo(string title)
+{
+    Movie *sabsab = findMovie(title,0,movies.size()-1);
+    if(sabsab == NULL)
+    {
+        cout << "Movie not found" << endl;
+        return;
+    }
+    for(unsigned int i = 0; i < sabsab->actors.size(); i++)
+    {
+        cout << "Year: " << sabsab->year << endl;
+        cout << "Director: " << sabsab->director << endl;
+        break;
+    }
+    cout << "Actors:" << endl;
+    for(unsigned int i = 0; i < sabsab->actors.size(); i++)
+    {
+        cout << sabsab->actors[i]->name << endl;
     }
     cout << "There were about " << sabsab->actors.size() << " actors in this movie" << endl;
 }

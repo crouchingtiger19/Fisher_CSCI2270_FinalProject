@@ -41,6 +41,12 @@ void ActorList::actorMovies(string name){
 */
 Actor *ActorList::findActor(string name,int front, int back){
     for(unsigned int x = 0; x < actors.size(); x ++){
+    	if(islower(name[0]))
+        {
+            name[0] = toupper(name[0]);
+            int pos = name.find(' ');
+            name[pos+1] = toupper(name[pos+1]);
+        }
         if(actors[x]->name == name)
             return actors[x];
     }
